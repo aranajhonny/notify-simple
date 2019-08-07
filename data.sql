@@ -14,6 +14,10 @@ COMMENT ON COLUMN public.assignment.node_id IS 'node id';
 COMMENT ON COLUMN public.assignment.program_id IS 'program id';
 -- end create table
 
+-- index
+CREATE INDEX idx_program_date ON assignment (program_id, updated);
+-- end index
+
 -- create function
 CREATE OR REPLACE FUNCTION notify_event() RETURNS TRIGGER AS $$
   DECLARE
