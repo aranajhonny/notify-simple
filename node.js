@@ -18,7 +18,7 @@ client.on('notification', async function(msg) {
 		assignments.add(payload.data.programId);
 		// node acquires the lock
     // or
-    // waiting for another node to release the block
+    // waiting for another node unlock()
 		await lock(payload.data.programId);
 
 		// remove blocking for
