@@ -30,7 +30,7 @@ CREATE OR REPLACE FUNCTION notify_event() RETURNS TRIGGER AS $$
       record = NEW;
     END IF;
 
-    payload = json_build_object('action', TG_OP, 'data', row_to_json(record)); -- [data] contain node_id, program_id, updated
+    payload = json_build_object('action', TG_OP, 'data', row_to_json(record));
 
     PERFORM pg_notify('events', payload::text);
 
