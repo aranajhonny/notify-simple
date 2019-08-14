@@ -16,7 +16,9 @@ client.on('notification', async function(msg) {
 
 	if (payload.data.nodeId === NODE_ID) {
 		assignments.add(payload.data.programId);
-		// programa esta asignado a este node 
+		// node acquires the lock
+    // or
+    // waiting for another node to release the block
 		await lock(payload.data.programId);
 
 		// remove blocking for
